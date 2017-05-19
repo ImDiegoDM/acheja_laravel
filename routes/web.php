@@ -11,4 +11,5 @@
 |
 */
 
-Route::get('/', 'ClientController@show');
+Route::get('/', 'MenuController@index');
+Route::get('/clients', 'ClientController@index');
