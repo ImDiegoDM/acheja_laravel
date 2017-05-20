@@ -33,6 +33,10 @@ class CreateFidelityCodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fidelity_codes');
+      Schema::table('fidelity_codes', function(Blueprint $table) {
+        $table->dropForeign('fidelity_codes_client_id_foreign');
+        $table->dropForeign('fidelity_codes_person_id_foreign');
+      });
+      Schema::dropIfExists('fidelity_codes');
     }
 }

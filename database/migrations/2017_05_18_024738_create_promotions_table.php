@@ -32,6 +32,9 @@ class CreatePromotionsTable extends Migration
      */
     public function down()
     {
+      Schema::table('promotions', function(Blueprint $table) {
+        $table->dropForeign('promotions_client_id_foreign');
+      });
         Schema::dropIfExists('promotions');
     }
 }

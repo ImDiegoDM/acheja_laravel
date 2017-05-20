@@ -37,6 +37,10 @@ class CreateEvaluationsTable extends Migration
      */
     public function down()
     {
+      Schema::table('evaluations', function(Blueprint $table) {
+        $table->dropForeign('evaluations_client_id_foreign');
+        $table->dropForeign('evaluations_person_id_foreign');
+      });
         Schema::dropIfExists('evaluations');
     }
 }

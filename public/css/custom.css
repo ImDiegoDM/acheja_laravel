@@ -27,6 +27,42 @@
   transition: all .2s ease-in-out;
 }
 
+.list-group-item{
+  border: solid 1px #2abca1;
+}
+
+.list-group-item:first-child{
+  background-color: #2abca1;
+  color: white;
+}
+
+.list-group-item.active{
+  color: white;
+  font-size: 18px;
+  background-color: #45948c;
+  border: solid 1px #2abca1;
+}
+
+.list-group-item.active:hover{
+  cursor: default;
+}
+
+.myCard{
+  border: solid 1px #c3c1c1;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.myCard:hover{
+  border: solid 1px #2abca1;
+  cursor: pointer;
+}
+
+.list-group-item:last-child{
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
 .myView{
   margin-left: 5rem;
   margin-right: 5rem;
@@ -36,6 +72,14 @@
   height: 8rem;
   color: #848383;
   background-color: #e6e6e6;
+}
+
+a{
+  color: black;
+}
+
+a:hover{
+  color: gray;
 }
 
 .menu-iten p{

@@ -10,7 +10,7 @@
   </head>
   <body>
     @yield('top')
-    <div class="mx-md-1 mx-1 ">
+    <div class="mx-md-1 mx-1 container-fluid">
       @yield('content')
     </div>
 

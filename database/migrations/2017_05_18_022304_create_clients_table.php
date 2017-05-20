@@ -26,6 +26,8 @@ class CreateClientsTable extends Migration
 
           $table->string('phone')->nullable();
 
+          $table->string('website')->nullable();
+
           $table->string('logo_url')->nullable();
 
           $table->string('photo_1')->nullable()->comment('url das fotos');
@@ -45,9 +47,9 @@ class CreateClientsTable extends Migration
 
           $table->date('last_activated_at')->nullable();
 
-          $table->integer('visualizations');
+          $table->integer('visualizations')->default(0);
 
-          $table->integer('clicks');
+          $table->integer('clicks')->default(0);
 
           $table->timestamps();
         });
@@ -60,6 +62,9 @@ class CreateClientsTable extends Migration
      */
     public function down()
     {
+      Schema::table('clients', function(Blueprint $table) {
+        $table->dropForeign('clients_category_id_foreign');
+      });
         Schema::dropIfExists('clients');
     }
 }

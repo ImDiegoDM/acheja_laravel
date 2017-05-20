@@ -35,6 +35,10 @@ class CreateFidelitySolicitationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fidelity_solicitations');
+      Schema::table('fidelity_solicitations', function(Blueprint $table) {
+        $table->dropForeign('fidelity_solicitations_client_id_foreign');
+        $table->dropForeign('fidelity_solicitations_person_id_foreign');
+      });
+      Schema::dropIfExists('fidelity_solicitations');
     }
 }
