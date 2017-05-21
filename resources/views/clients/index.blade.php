@@ -14,16 +14,13 @@
               <i class="fa fa-user-circle m-1" style="color: #2abca1;" aria-hidden="true"></i>
               Usuario</h5>
             </div>
-
           </div>
         </div>
       </div>
-
   </div>
 @endsection
 
 @section('content')
-  todo->  mostrar meus Clients
   <div class="row">
     <div class="col-sm-3 col-xl-2">
       <div class="list-group" style="">
@@ -40,12 +37,13 @@
           <img class="" style="width:100px; height:auto;" src="img/logo.png" alt="Card image cap">
           <p class="d-inline-block" style="vertical-align: top;">
             {{$client->name}} <br>
-            {{$client->address}} @if($client->phone) <br>
+            {{$client->city->name}} {{$client->city->state_id}} <br>
+            {{$client->street}} {{$client->street_number  }} @if($client->phone) <br>
             {{$client->phone}} @endif <br>
             <i>{{$client->category->name}}</i>
           </p>
-          <p class="d-block" style="font-size:12px;font-weight: bold;;position:absolute;bottom:.5rem;right:1.5rem;">
-          Cliente desde: {{ $client->created_at->setTimezone('-3')->format('d/m/Y')}}</p>
+          <p class="d-block" style="font-size:12px;font-weight: bold;;position:absolute;bottom:0rem;right:1.5rem;">
+          Cliente desde: {{ $client->created_at->setTimezone('-4')->format('d/m/Y')}}</p>
           <div class="row" style="overflow:auto;">
           </div>
         </div>

@@ -18,11 +18,15 @@ class CreateClientsTable extends Migration
 
           $table->string('name',80);
 
-          $table->text('address');
+          $table->text('street');
+
+          $table->integer('street_number');
 
           $table->float('lng')->comment('longidute');
 
           $table->float('lat')->comment('latitude');
+
+          $table->string('description');
 
           $table->string('phone')->nullable();
 

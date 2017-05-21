@@ -14,7 +14,8 @@ class ClientTableSeeder extends Seeder
     {
         Client::create(array(
           'name' => 'Alberto',
-          'address' => 'Rua presbitero joão Rosa da Silva 253',
+          'street' => 'Rua presbitero joão Rosa da Silva',
+          'street_number' => 253,
           'lng' => 10,
           'lat' => 10,
           'category_id' => 1,

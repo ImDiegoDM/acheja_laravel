@@ -13,3 +13,6 @@
 
 Route::get('/', 'MenuController@index');
 Route::get('/clients', 'ClientController@index');
+Route::get('/clients/register','ClientController@register');
+
+Route::post('/clients/file','FileController@store');

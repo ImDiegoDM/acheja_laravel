@@ -10,4 +10,9 @@ class Client extends Model
     {
       return $this->belongsTo(Category::class);
     }
+
+    public function city()
+    {
+      return $this->belongsTo(City::class);
+    }
 }
