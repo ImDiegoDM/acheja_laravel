@@ -19,7 +19,8 @@ class ClientTableSeeder extends Seeder
           'lng' => 10,
           'lat' => 10,
           'category_id' => 1,
-          'city_id' => 1
+          'city_id' => 1,
+          'description' => 'teste'
          ));
     }
 }

@@ -2,6 +2,49 @@
   padding: 0px 10px;
 }
 
+.imgShow{
+  width: 90%;
+  margin: auto;
+  max-height: 120px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.imgBox{
+  height: 120px;
+}
+
+.centerXDiv{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+.shadow{
+  box-shadow: 2px 2px 5px #888888;
+  border-radius: 5px;
+  border: #d4d4d4 1px solid;
+}
+
+.p-absolute{
+  position: absolute;
+}
+
+.centerYDiv{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .middle-origin{
   transform: translateY(25%);
 }
@@ -47,8 +90,13 @@
   }
 }
 
+.map{
+    height: 400px;
+    margin-right: -15px;
+}
+
 .myContainer{
-  max-width: 800px;
+  max-width: 850px;
   margin: auto;
 }
 /*@media screen and (max-width: 840px) {
@@ -58,12 +106,52 @@
 }*/
 
 .file-btn{
+  width: 163px;
+  height: 163px;
+}
+
+.file-preview{
+  top: 5px;
+  display: none;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+}
+
+.photo-preview, .labelP-preview{
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+.labelP-preview{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.file-dragOver{
+  border: dotted 3px white;
+}
+
+.file-dragOver-green{
+  border: dotted 3px #7ecfd7;
+}
+
+.labe-preview{
+  z-index: 2;
+  top: 5px;
+  cursor: pointer;
+  display: none;
+  position: absolute;
   width: 150px;
   height: 150px;
 }
 
 .btn-confirm{
-  background: #00887a;
+  background: #00aede;
   color: white;
   cursor: pointer;
 }
@@ -117,7 +205,7 @@
 .menu-name{
   padding: .5rem .8rem;
   color: white;
-  background-color: #2abca1;
+  background-color: #00aede ;
   max-width: 80%;
 }
 
@@ -191,7 +279,7 @@ a:hover{
 
 .menu-iten:hover{
   color: #b9b9b9;
-  border: 2px solid #2abca1;
+  border: 2px solid #038fc7;
   /*background-color: white;*/
 }
 

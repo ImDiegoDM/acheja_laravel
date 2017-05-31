@@ -10,9 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function(){
+  return redirect()->home();
+});
+Route::get('/home', 'MenuController@index')->name('home');
 
-Route::get('/', 'MenuController@index');
 Route::get('/clients', 'ClientController@index');
+Route::get('/client/{client}', 'ClientController@show');
 Route::get('/clients/register','ClientController@register');
+Route::post('/clients','ClientController@store');
 
-Route::post('/clients/file','FileController@store');
+Route::get('/users/register','UserController@register');
+Route::post('/users','UserController@store');
+
+Route::get('/login','SessionController@index')->name('login');
+Route::post('/login','SessionController@create');
+Route::get('/logout','SessionController@destroy');

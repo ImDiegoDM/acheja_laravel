@@ -22,9 +22,9 @@ class CreateClientsTable extends Migration
 
           $table->integer('street_number');
 
-          $table->float('lng')->comment('longidute');
+          $table->float('lng',12,8)->comment('longidute');
 
-          $table->float('lat')->comment('latitude');
+          $table->float('lat',12,8)->comment('latitude');
 
           $table->string('description');
 

@@ -1,4 +1,9 @@
 Dropzone.autoDiscover = false;
+
+var process = function () {
+  console.log('submited');
+}
+
 $(document).ready(function(){
   var previewNode = document.querySelector("#template");
   previewNode.id = "";
@@ -29,6 +34,7 @@ $(document).ready(function(){
         }),
         this.on("success", function(file) {
             $('.preview').css({"width":"100%", "height":"auto"});
+            console.log(file);
         })
     },
     success: function(file, response){
