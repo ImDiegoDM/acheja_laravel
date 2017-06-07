@@ -2,6 +2,57 @@
   padding: 0px 10px;
 }
 
+.p-relative{
+  position: relative;
+}
+
+.p-absolute{
+  position: absolute;
+}
+
+.horizontal-center{
+  top:50%;
+  transform: translateY(-50%);
+}
+
+.activeBadge{
+  width: 50px;
+  height: 50px;
+  right: 14px;
+  top: -10px;
+  border-radius: 50%;
+  border: white 2px solid;
+  color: white;
+  background-color: #15c16a;
+  position: absolute;
+}
+
+.notactiveBadge{
+  width: 50px;
+  height: 50px;
+  right: 14px;
+  top: -10px;
+  border-radius: 50%;
+  border: white 2px solid;
+  color: white;
+  background-color: red;
+  position: absolute;
+}
+
+.activeBadge i{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.notactiveBadge i{
+  position: relative;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
 .imgShow{
   width: 90%;
   margin: auto;
@@ -150,10 +201,31 @@
   height: 150px;
 }
 
+.list-group-item{
+  font-size: 13px;
+}
+
+h4.list-group-item{
+  font-size: 15px;
+}
+
 .btn-confirm{
   background: #00aede;
   color: white;
   cursor: pointer;
+}
+
+a:hover{
+  cursor: pointer;
+  color: #a7a7a7;
+}
+
+a.active, a:not([href]):not([tabindex]).active,a:not([href]):not([tabindex]).active:hover{
+  color: white;
+}
+
+.btn-confirm:hover{
+  color: white;
 }
 
 .btn-back, .btn-back:hover{
@@ -218,19 +290,34 @@
 }
 
 .list-group-item{
-  border: solid 1px #2abca1;
+  border: solid 1px #00aede;
 }
 
 .list-group-item:first-child{
-  background-color: #2abca1;
+  background-color: #00aede;
   color: white;
 }
 
 .list-group-item.active{
   color: white;
-  font-size: 18px;
-  background-color: #45948c;
-  border: solid 1px #2abca1;
+  background-color: #0373a0;
+  border: solid 1px #00aede;
+}
+
+.video-container {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 70%;
 }
 
 .list-group-item.active:hover{
@@ -244,7 +331,7 @@
 }
 
 .myCard:hover{
-  border: solid 1px #2abca1;
+  border: solid 1px #00aede;
   cursor: pointer;
 }
 

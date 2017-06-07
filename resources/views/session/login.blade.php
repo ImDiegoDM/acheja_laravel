@@ -24,7 +24,7 @@
             </div>
             <div class="row">
               <div class="col-sm-12 mb-3">
-                <input type="checkbox" class=""  name="remeber" value=""><label for="remeber" class="align-middle" style="font-size:13px;"> Lembrar</label>
+                <input type="checkbox" class=""  name="remeber" value="true"><label for="remeber" class="align-middle" style="font-size:13px;"> Lembrar</label>
                 <input type="submit" class="d-inline-block float-right btn btn-confirm" name="" value="Login">
               </div>
             </div>

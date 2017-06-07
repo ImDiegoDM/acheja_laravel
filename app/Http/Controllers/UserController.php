@@ -25,11 +25,12 @@ class UserController extends Controller
     $this->validate(request(),[
       'name'=>'required',
       'user_type_id'=>'required',
-      'email'=>'nullable|email'
+      'email'=>'nullable|email|unique:users'
     ],[
       'name.required'=>'Por favor insira um nome',
       'user_type_id.required'=>'Por favor escolha um tipo',
-      'email.email'=>'Por favor insira um email valido'
+      'email.email'=>'Por favor insira um email valido',
+      'email.unique'=>'Email já cadastrado'
     ]);
 
      User::create(request()->all());

@@ -49,7 +49,7 @@ class CreateClientsTable extends Migration
 
           $table->boolean('actived')->default(false);
 
-          $table->date('last_activated_at')->nullable();
+          $table->timestamp('last_activated_at')->nullable();
 
           $table->integer('visualizations')->default(0);
 

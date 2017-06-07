@@ -7,7 +7,7 @@
         <a href="{{env('APP_URL').'/public/home'}}"><img src="{{ URL::asset('img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
       </div>
       <div class="col-sm-7 pt-2 ">
-        <h3 class="p-relative horizontal-center float-sm-right text-center menu-name smooth-border" style="width:90%;">Adicionar Usuario</h3>
+        <h3 class="p-relative horizontal-center float-sm-right text-center menu-name smooth-border" style="width:90%;">Adicionar Cliente</h3>
       </div>
       <div class="col-sm-3">
         @include('layout.user')
@@ -18,7 +18,7 @@
 
 @section('content')
   <div class="myContainer">
-    <h1>Usuario cadastrado com sucesso!</h1>
+    <h1>Cliente cadastrado com sucesso!</h1>
     <a class="btn btn-confirm" href="./home">Voltar</a>
   </div>
 @endsection

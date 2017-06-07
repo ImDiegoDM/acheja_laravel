@@ -16,9 +16,9 @@ class SessionController extends Controller
       return view('session.login');
     }
 
-    public function create(Request $request)
+    public function create()
     {
-        if(! auth()->attempt(request(['email','password']),$request->remeber)){
+        if(! auth()->attempt(request(['email','password']),request()->remeber)){
           return back()->withErrors([
             'message' => 'Por favor verifique o email e a senha.'
           ]);

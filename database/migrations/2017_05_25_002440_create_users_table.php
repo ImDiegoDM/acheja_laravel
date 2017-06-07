@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->foreign('user_type_id')->references('id')->on('user_types');
             $table->string('phone')->nullable();
-            $table->string('email')->nullable();
+            $table->string('email')->nullable()->unique();
             $table->boolean('have_acess')->default(false);
             $table->boolean('confirm_email')->default(false);
             $table->string('password')->nullable();

@@ -17,8 +17,12 @@ Route::get('/home', 'MenuController@index')->name('home');
 
 Route::get('/clients', 'ClientController@index');
 Route::get('/client/{client}', 'ClientController@show');
+Route::put('/client/{client}', 'ClientController@update');
+Route::get('/client/{client}/edit', 'ClientController@edit');
 Route::get('/clients/register','ClientController@register');
 Route::post('/clients','ClientController@store');
+Route::put('/client/{client}/active','ClientController@active');
+Route::put('/client/{client}/disable','ClientController@disable');
 
 Route::get('/users/register','UserController@register');
 Route::post('/users','UserController@store');

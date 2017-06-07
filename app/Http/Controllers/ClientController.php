@@ -19,9 +19,23 @@ class ClientController extends Controller
 
     public function index()
     {
-      $clients = Client::all();
       $categories = Category::all();
       $cities = City::all();
+
+      if(request()->category&&request()->city){
+        $clients = Client::where('category_id',request()->category)->where('city_id',request()->city)->get();
+      }
+      elseif (request()->category) {
+        $clients = Client::where('category_id',request()->category)->get();
+      }
+      elseif (request()->city) {
+        $clients = Client::where('city_id',request()->city)->get();
+      }
+      else {
+        $clients = Client::all();
+      }
+
+
 
       //return $clients;
 
@@ -30,7 +44,37 @@ class ClientController extends Controller
 
     public function show(Client $client)
     {
+
       return view('clients.show',compact('client'));
+    }
+
+    public function edit(Client $client)
+    {
+      $categories = Category::all();
+      $regions = Region::all();
+      $cities = City::all();
+      $users = User::clients();
+
+      return view('clients.edit')->with('categories',$categories)->with('regions',$regions)->with('cities',$cities)->with('users',$users)->with('client',$client);
+    }
+
+    public function update(Client $client)
+    {
+
+    }
+
+    public function active(client $client)
+    {
+      if($client->active()){
+        return redirect('client/'.$client->id);
+      }
+    }
+
+    public function disable(client $client)
+    {
+      if($client->disable()){
+        return redirect('client/'.$client->id);
+      }
     }
 
     public function store(Request $request)
@@ -44,6 +88,7 @@ class ClientController extends Controller
         'photo3' => 'image|nullable',
         'photo4' => 'image|nullable',
         'website' => 'url|nullable',
+        'video_link' => 'nullable|url',
         'name'=>'required',
         'street' =>'required',
         'street_number' => 'required|numeric',
@@ -52,6 +97,7 @@ class ClientController extends Controller
       ],
       [
         'city_id.required' => 'Por favor selecione uma cidade',
+        'video_link' => 'O link do video deve ser uma url valida',
         'responsible.required' => 'Por favor preencha o campo de responsável',
         'logo.required'=>'Por favor insira uma logo',
         'logo.file'=>'A logo deve ser um arquivo de imagem',
@@ -107,7 +153,7 @@ class ClientController extends Controller
 
       $client->update();
 
-      return view('menu.index');
+      return view('clients.sucess');
     }
 
     public function register()
@@ -115,7 +161,7 @@ class ClientController extends Controller
       $categories = Category::all();
       $regions = Region::all();
       $cities = City::all();
-      $users = User::where('user_type_id','!=',1)->get();
+      $users = User::clients();
 
       return view('clients.register')->with('categories',$categories)->with('regions',$regions)->with('cities',$cities)->with('users',$users);
     }

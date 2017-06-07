@@ -7,7 +7,7 @@
         <a href="{{env('APP_URL').'/public/home'}}"><img src="{{ URL::asset('img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
       </div>
       <div class="col-sm-7 pt-2 ">
-        <h3 class="p-relative horizontal-center float-sm-right text-center menu-name smooth-border" style="width:90%;">Adicionar Cliente</h3>
+        <h3 class="p-relative horizontal-center float-sm-right text-center menu-name smooth-border" style="width:90%;">Editar Cliente</h3>
       </div>
       <div class="col-sm-3">
         @include('layout.user')
@@ -32,7 +32,7 @@
             <h3 class="ml-2 col-sm-12">Cadastro de clientes</h3>
             <div class="col-sm-12 ">
               <label class="col-sm-6 text-right " style="top:5%" for="exampleSelect1">*Cidade</label>
-              <select class="form-control col-sm-6 d-inline-block float-sm-right" value="{{old('city_id')}}" id="city_id" name="city_id">
+              <select class="form-control col-sm-6 d-inline-block float-sm-right" value="{{$client->city_id}}" id="city_id" name="city_id">
                 @foreach ($cities as $city)
                   <option value="{{$city->id}}">{{$city->name}}</option>
                 @endforeach
@@ -42,7 +42,7 @@
             <div class="col-sm-12">
               @if (count($users)>0)
                 <label class="col-sm-6 text-right " style="top:5%" for="exampleSelect1">*Responsavel</label>
-                <select class="form-control d-inline-block float-sm-right col-sm-6" value="{{old('user_id')}}" id="user_id" name="user_id">
+                <select class="form-control d-inline-block float-sm-right col-sm-6" value="{{$client->user_id}}" id="user_id" name="user_id">
                   @foreach ($users as $user)
                     <option value="{{$user->id}}">{{$user->name}}</option>
                   @endforeach
@@ -66,24 +66,24 @@
         </div>
         <div class="form-group row mx-0">
           <label class=" col-sm-2 d-inline-block pt-1" for="">*Cliente:</label>
-          <input type="text" style=""  class="col-sm-10 form-control" placeholder="Digite o nome do cliente" value="{{old('name')}}" id="name" name="name">
+          <input type="text" style=""  class="col-sm-10 form-control" placeholder="Digite o nome do cliente" value="{{$client->name}}" id="name" name="name">
         </div>
         <div class="form-group row mx-0">
           <label class="col-sm-2 pt-1" for="">*Endereço:</label>
-          <input type="text" style=""  class="col-sm-6 form-control" value="{{old('street')}}" id="street" name="street" placeholder="Exp: Rua Presbitero João Rosa">
+          <input type="text" style=""  class="col-sm-6 form-control" value="{{$client->street}}" id="street" name="street" placeholder="Exp: Rua Presbitero João Rosa">
           <label class="col-sm-2 pt-1" for="">*Numero:</label>
-          <input type="text" style=""  class="col-sm-2 form-control" value="{{old('street_number')}}" id="street_number" name="street_number" placeholder="Exp: 253">
+          <input type="text" style=""  class="col-sm-2 form-control" value="{{$client->street_number}}" id="street_number" name="street_number" placeholder="Exp: 253">
         </div>
         <div class="form-group row mx-0">
           <label class="col-sm-2 pt-1" for="">*Categoria:</label>
-          <select class="form-control col-sm-4" value="{{old('category_id')}}" id="category_id" name="category_id">
+          <select class="form-control col-sm-4" value="{{$client->category_id}}" id="category_id" name="category_id">
             @foreach ($categories as $category)
               <option value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
           </select>
           @if (count($regions)>0)
             <label class="col-sm-2 pt-1" for="">Região:</label>
-            <select class="form-control col-sm-4" value="{{old('region_id')}}" id="region_id" name="region_id">
+            <select class="form-control col-sm-4" value="{{$client->region_id}}" id="region_id" name="region_id">
               @foreach ($regions as $region)
                 <option value="{{$region->id}}">{{$region->name}}</option>
               @endforeach
@@ -92,17 +92,17 @@
         </div>
         <div class="form-group row mx-0">
           <label class="col-sm-2 pt-1" for="">Telefone:</label>
-          <input type="text" style="" class="col-sm-4 form-control" value="{{old('phone')}}" id="phone" name="phone" placeholder="Exp: (31) 1234-1234">
+          <input type="text" style="" class="col-sm-4 form-control" value="{{$client->phone}}" id="phone" name="phone" placeholder="Exp: (31) 1234-1234">
           <label class="col-sm-2 pt-1" for="">Site:</label>
-          <input type="text" style="" class="col-sm-4 form-control" value="{{old('website')}}" id="website" name="website" placeholder="Exp: www.fulano.com.br">
+          <input type="text" style="" class="col-sm-4 form-control" value="{{$client->website}}" id="website" name="website" placeholder="Exp: www.fulano.com.br">
         </div>
         <div class="form-group row mx-0">
           <label class="col-sm-2 pt-1" for="video_link">Video URL:</label>
-          <input type="text" style="" class="col-sm-10 form-control" value="{{old('video_link')}}" id="video_link" name="video_link" placeholder="https://www.youtube.com/watch?v=JGwWNGJdvx8">
+          <input type="text" style="" class="col-sm-10 form-control" value="{{$client->video_link}}" id="video_link" name="video_link" placeholder="https://www.youtube.com/watch?v=JGwWNGJdvx8">
         </div>
         <div class="form-group row mx-0">
           <label class="col-sm-2 pt-1"  for="exampleTextarea">*Descrição:</label>
-          <textarea class=" col-sm-10 form-control" id="description" style="resize: none;" name="description" rows="3">{{{old('description')}}}</textarea>
+          <textarea class=" col-sm-10 form-control" id="description" style="resize: none;" name="description" rows="3">{{$client->description}}</textarea>
         </div>
         <div class="form-group row mx-0">
           <label class="col-sm-2 pt-1" for="exampleTextarea">Imagens:</label>
@@ -135,7 +135,7 @@
         </div>
         <div class="form-group row mx-0 py-3" style="padding: 1px 15px;">
           <label class="form-check-label">
-            <input type="checkbox" value="1" @if(old('actived')==1) checked @endif name="actived" class="form-check-input">
+            <input type="checkbox" value="1" @if($client->actived==1) checked @endif name="actived" class="form-check-input">
             Cliente ativo
           </label>
         </div>
