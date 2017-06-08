@@ -53,7 +53,7 @@ class ClientController extends Controller
       $categories = Category::all();
       $regions = Region::all();
       $cities = City::all();
-      $users = User::clients();
+      $users = User::getclients();
 
       return view('clients.edit')->with('categories',$categories)->with('regions',$regions)->with('cities',$cities)->with('users',$users)->with('client',$client);
     }

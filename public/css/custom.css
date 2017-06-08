@@ -2,6 +2,21 @@
   padding: 0px 10px;
 }
 
+.max100{
+  font-size: 12px;
+  position: absolute;
+  overflow-y: auto;
+  top: 61px;
+  left: 20px;
+  right: 20px;
+  bottom: 0px;
+}
+
+.table .hover:hover{
+  background-color: #dee1e4;
+  cursor: pointer;
+}
+
 .p-relative{
   position: relative;
 }
@@ -71,6 +86,43 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+.leftBorder{
+  border-left: 3px solid #ddd
+}
+
+.userInfo{
+  font-weight: 100;
+  font-style: italic;
+}
+
+.clientBackground{
+
+}
+
+.clientBackground.active{
+  background-color:#0373a0;
+  color:white;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+a .clientBackground.active:hover{
+  background-color:#015577;
+}
+
+.clientBackground.disable{
+  background-color:#7d888c;
+  color:white;
+}
+
+a .clientBackground.disable:hover{
+  background-color:#656e71;
+}
+
+
 
 .vertical-center {
   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
@@ -150,6 +202,15 @@
   max-width: 850px;
   margin: auto;
 }
+
+.absoluteFullcontent{
+  position: absolute;
+  left: 0px;
+  top: 74px;
+  right: 0px;
+  bottom: 0px;
+}
+
 /*@media screen and (max-width: 840px) {
   .myContainer{
     width: auto;

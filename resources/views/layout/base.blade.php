@@ -13,12 +13,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
-    <script src="../node_modules/urijs/src/URI.min.js"></script>
     <script src="{{ URL::asset('js/functions.js')}}"></script>
   </head>
   <body>
     @yield('top')
-    <div class="mx-md-1 mx-1 container-fluid">
+    <div class="mx-md-1 mx-1">
       @yield('content')
     </div>
 

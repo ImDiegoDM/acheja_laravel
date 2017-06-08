@@ -39,15 +39,15 @@
     </a>
   </div>
   <div class="row d-flex mt-2 mx-0 flexDislpayCenter">
-    <a class="col-sm-3 col-xl-2 mx-sm-2 mx-5 d-flex flexDislpayCenter smooth-border noDeco menu-iten" href="">
+    <a class="col-sm-3 col-xl-2 mx-sm-2 mx-5 d-flex flexDislpayCenter smooth-border noDeco menu-iten" href="./users">
       <div class="d-block">
-        <i class="fa fa-user-secret fa-3x d-block" style="margin:auto; width:.8em;" aria-hidden="true"></i>
+        <i class="fa fa-user fa-3x d-block" style="margin:auto; width:.8em;" aria-hidden="true"></i>
         <p class="text-center mb-0">usuarios</p>
       </div>
     </a>
     <a class="col-sm-3 col-xl-2 mx-sm-2 mx-5 d-flex flexDislpayCenter smooth-border noDeco menu-iten" href="./users/register">
       <div class="d-block">
-        <i class="fa fa-user-secret fa-3x d-block" style="margin:auto; width:.8em;" aria-hidden="true"></i>
+        <i class="fa fa-user-plus fa-3x d-block" style="margin:auto; width:.8em;" aria-hidden="true"></i>
         <p class="text-center mb-0">Adicionar usuarios</p>
       </div>
     </a>

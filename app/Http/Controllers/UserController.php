@@ -11,6 +11,7 @@ class UserController extends Controller
   public function __construct()
   {
     $this->middleware('auth');
+    $this->middleware('admin');
   }
 
   public function register()
@@ -18,6 +19,18 @@ class UserController extends Controller
     $user_types = UserType::all();
 
     return view('users.register')->with('user_types',$user_types);
+  }
+
+  public function show(User $user)
+  {
+    return view('users.show')->with('user',$user);
+  }
+
+  public function index()
+  {
+    $users = User::where('id','!=',auth()->user()->id)->get();
+
+    return view('users.index')->with('users',$users);
   }
 
   public function store()

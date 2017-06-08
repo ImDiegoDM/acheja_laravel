@@ -13,6 +13,7 @@
 Route::get('/', function(){
   return redirect()->home();
 });
+
 Route::get('/home', 'MenuController@index')->name('home');
 
 Route::get('/clients', 'ClientController@index');
@@ -26,6 +27,8 @@ Route::put('/client/{client}/disable','ClientController@disable');
 
 Route::get('/users/register','UserController@register');
 Route::post('/users','UserController@store');
+Route::get('/users','UserController@index');
+Route::get('/user/{user}','UserController@show');
 
 Route::get('/login','SessionController@index')->name('login');
 Route::post('/login','SessionController@create');

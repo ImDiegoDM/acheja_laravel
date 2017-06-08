@@ -22,22 +22,7 @@
 
 @section('content')
   <div class="myContainer">
-    <div class="row py-3" style={{ $client->actived ? "background-color:#0373a0;color:white;" : "background-color:#7d888c;color:white;" }}>
-      <div class="col-sm-6">
-        <h1 class="mb-0">{{$client->name}}</h1>
-        <h4 class="ml-4">{{$client->category->name}}</h4>
-        <div class="d-inline-block" style="font-size:12px;position: absolute; bottom:-29px;">
-          <p>Criado em {{$client->created_at->setTimezone('-4')->format('d/m/Y')}} <br> Ativado pela ultima vez em {{$client->last_activated_at->setTimezone('-4')->format('d/m/Y')}}</p>
-        </div>
-      </div>
-      <div class="col-sm-6 pr-5">
-        @if ($client->logo_url)
-          <img class="d-inline-block float-sm-right" style="width:130px; height:auto;" src="{{env('APP_URL') . '/storage/app/' . $client->logo_url}}" alt="Card image cap">
-        @else
-          <p style="width:100px; height:auto; background-color:#e0e0e0;border-radius:9px; border: dotted #a2a2a2 3px; font-size:12px;" class="d-inline-block text-center p-3">Logo não encontrada, cadastre uma logo</p>
-        @endif
-      </div>
-    </div>
+    @include('layout.client')
     <div class="row mx-0 pt-3">
       <div class="col-sm-3 imgBox">
         <a href="">
@@ -72,7 +57,7 @@
         </div>
         <div class="">
           <h5>Contato</h5>
-          <p class="ml-3">{{$client->user->name}}<br>{{Helper::mask($client->user->phone,'(**) ****-****')}}<br>{{$client->user->email}}</p>
+          <p class="ml-3"><a href="{{env('APP_URL')}}/public/user/{{$client->user->id}}">{{$client->user->name}}</a><br>{{Helper::mask($client->user->phone,'(**) ****-****')}}<br>{{$client->user->email}}</p>
         </div>
         <div class="row mx-0 mt-5">
           <div class="mx-auto">

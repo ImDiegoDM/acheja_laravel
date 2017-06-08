@@ -15,7 +15,11 @@ class User extends Authenticatable
     {
       return $this->belongsTo(UserType::class);
     }
-    public static function clients()
+    public function clients()
+    {
+      return $this->hasMany(client::class);
+    }
+    public static function getclients()
     {
       return User::where('user_type_id','!=',1)->get();
     }
