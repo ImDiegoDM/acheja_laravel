@@ -24,7 +24,8 @@
   <script type="text/javascript" src="{{ URL::asset('js/Photo3.js')}}" ></script>
   <script type="text/javascript" src="{{ URL::asset('js/Photo4.js')}}" ></script>
   <div class="myContainer">
-      <form class="" action="{{ URL::asset('clients')}}" enctype="multipart/form-data" method="post">
+      <form class="" action="{{env('APP_URL')."/public/client/".$client->id}}" enctype="multipart/form-data" method="post">
+        <input type="hidden" name="_method" value="PUT">
         {{ csrf_field() }}
         @include('layout.errors')
         <div class="form-group row py-2" style="background-color:#0373a0; color:white;">
@@ -52,10 +53,17 @@
           </div>
           <div class="col-sm-4" >
             <div class=" p-0 d-inline-block file-btn mr-md-5 float-sm-right px-1" style="border-radius:10px;" id="logoBox">
-              <label for="logo" id="labelLogo" class="labe-preview"></label>
-              <img id="logoPreview" class="file-preview" src="" alt="">
-              <label for="logo" id="logoButton" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Adicionar Logo</label>
-              <input type="file" onchange="logoPreviewFile()" class="d-none" name="logo" id="logo" value="">
+              @if ($client->logo_url)
+                <label for="logo" id="labelLogo" style="display:block;" class="labe-preview"></label>
+                <img id="logoPreview" class="file-preview" style="display:block;" src="{{env('APP_URL') . '/storage/app/' . $client->logo_url}}" alt="">
+                <label for="logo" id="logoButton" style="display:none;" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Adicionar Logo</label>
+                <input type="file" onchange="logoPreviewFile()" class="d-none" name="logo" id="logo" value="">
+              @else
+                <label for="logo" id="labelLogo" class="labe-preview"></label>
+                <img id="logoPreview" class="file-preview" src="" alt="">
+                <label for="logo" id="logoButton" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Adicionar Logo</label>
+                <input type="file" onchange="logoPreviewFile()" class="d-none" name="logo" id="logo" value="">
+              @endif
             </div>
           </div>
           @if (count($users)<=0)
@@ -108,28 +116,56 @@
           <label class="col-sm-2 pt-1" for="exampleTextarea">Imagens:</label>
           <div class="col-sm-10 row mx-0">
             <div class="col-sm-3" style="padding-bottom:20px;" id="photo1Box">
-              <label for="photo1" id="labelphoto1" class="labelP-preview"></label>
-              <img id="photo1Preview" class="photo-preview" src="" alt="">
-              <label for="photo1" id="photo1Button" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Imagem 1</label>
-              <input type="file" onchange="photo1PreviewFile()" class="d-none" name="photo1" id="photo1" value="">
+              @if ($client->photo_1)
+                <label for="photo1" id="labelphoto1" style="display:block;" class="labelP-preview"></label>
+                <img id="photo1Preview" style="display:block;" class="photo-preview" src="{{env('APP_URL') . '/storage/app/' . $client->photo_1}}" alt="">
+                <label for="photo1" style="display:none;" id="photo1Button" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Imagem 1</label>
+                <input type="file" onchange="photo1PreviewFile()" class="d-none" name="photo1" id="photo1" value="">
+              @else
+                <label for="photo1" id="labelphoto1" class="labelP-preview"></label>
+                <img id="photo1Preview" class="photo-preview" src="" alt="">
+                <label for="photo1" id="photo1Button" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Imagem 1</label>
+                <input type="file" onchange="photo1PreviewFile()" class="d-none" name="photo1" id="photo1" value="">
+              @endif
             </div>
             <div class="col-sm-3" style="padding-bottom:20px;" id="photo2Box">
-              <label for="photo2" id="labelphoto2" class="labelP-preview"></label>
-              <img id="photo2Preview" class="photo-preview" src="" alt="">
-              <label for="photo2" id="photo2Button" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Imagem 2</label>
-              <input type="file" onchange="photo2PreviewFile()" class="d-none" name="photo2" id="photo2" value="">
+              @if ($client->photo_2)
+                <label for="photo2" style="display:block;" id="labelphoto2" class="labelP-preview"></label>
+                <img id="photo2Preview" style="display:block;" class="photo-preview" src="{{env('APP_URL') . '/storage/app/' . $client->photo_2}}" alt="">
+                <label for="photo2" style="display:none;" id="photo2Button" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Imagem 2</label>
+                <input type="file" onchange="photo2PreviewFile()" class="d-none" name="photo2" id="photo2" value="">
+              @else
+                <label for="photo2" id="labelphoto2" class="labelP-preview"></label>
+                <img id="photo2Preview" class="photo-preview" src="" alt="">
+                <label for="photo2" id="photo2Button" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Imagem 2</label>
+                <input type="file" onchange="photo2PreviewFile()" class="d-none" name="photo2" id="photo2" value="">
+              @endif
             </div>
             <div class="col-sm-3" style="padding-bottom:20px;" id="photo3Box">
-              <label for="photo3" id="labelphoto3" class="labelP-preview"></label>
-              <img id="photo3Preview" class="photo-preview" src="" alt="">
-              <label for="photo3" id="photo3Button" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Imagem 3</label>
-              <input type="file" onchange="photo3PreviewFile()" class="d-none" name="photo3" id="photo3" value="">
+              @if ($client->photo_3)
+                <label for="photo3" style="display:block" id="labelphoto3" class="labelP-preview"></label>
+                <img id="photo3Preview" style="display:block" class="photo-preview" src="{{env('APP_URL') . '/storage/app/' . $client->photo_3}}" alt="">
+                <label for="photo3" style="display:none;" id="photo3Button" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Imagem 3</label>
+                <input type="file" onchange="photo3PreviewFile()" class="d-none" name="photo3" id="photo3" value="">
+              @else
+                <label for="photo3" id="labelphoto3" class="labelP-preview"></label>
+                <img id="photo3Preview" class="photo-preview" src="" alt="">
+                <label for="photo3" id="photo3Button" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Imagem 3</label>
+                <input type="file" onchange="photo3PreviewFile()" class="d-none" name="photo3" id="photo3" value="">
+              @endif
             </div>
             <div class="col-sm-3" style="padding-bottom:20px;" id="photo4Box">
-              <label for="photo4" id="labelphoto4" class="labelP-preview"></label>
-              <img id="photo4Preview" class="photo-preview" src="" alt="">
-              <label for="photo4" id="photo4Button" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Imagem 4</label>
-              <input type="file" onchange="photo4PreviewFile()" class="d-none" name="photo4" id="photo4" value="">
+              @if ($client->photo_4)
+                <label for="photo4" style="display:block;" id="labelphoto4" class="labelP-preview"></label>
+                <img id="photo4Preview" style="display:block;" class="photo-preview" src="{{env('APP_URL') . '/storage/app/' . $client->photo_4}}" alt="">
+                <label for="photo4" style="display:none;" id="photo4Button" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Imagem 4</label>
+                <input type="file" onchange="photo4PreviewFile()" class="d-none" name="photo4" id="photo4" value="">
+              @else
+                <label for="photo4" id="labelphoto4" class="labelP-preview"></label>
+                <img id="photo4Preview" class="photo-preview" src="" alt="">
+                <label for="photo4" id="photo4Button" class="btn btn-primary col-sm-12" style="top:36%; font-size:16px;" name="button">Imagem 4</label>
+                <input type="file" onchange="photo4PreviewFile()" class="d-none" name="photo4" id="photo4" value="">
+              @endif
             </div>
           </div>
         </div>

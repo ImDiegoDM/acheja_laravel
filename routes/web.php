@@ -29,6 +29,9 @@ Route::get('/users/register','UserController@register');
 Route::post('/users','UserController@store');
 Route::get('/users','UserController@index');
 Route::get('/user/{user}','UserController@show');
+Route::post('/user/{user}/giveAcess','UserController@giveAcess');
+Route::post('/user/{user}/savePassword','UserController@savePassoword');
+Route::get('/users/setpassword','UserController@setPassword');
 
 Route::get('/login','SessionController@index')->name('login');
 Route::post('/login','SessionController@create');

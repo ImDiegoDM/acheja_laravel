@@ -12,6 +12,16 @@
   bottom: 0px;
 }
 
+#message .alert .exit{
+  position: absolute;
+  top: 0px;
+  right: 24px;
+}
+
+#message .alert .exit:hover{
+  cursor: pointer;
+}
+
 .table .hover:hover{
   background-color: #dee1e4;
   cursor: pointer;
