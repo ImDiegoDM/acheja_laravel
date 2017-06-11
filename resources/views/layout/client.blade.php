@@ -4,7 +4,10 @@
     <h4 class="ml-4">{{$client->category->name}}</h4>
     <div class="d-inline-block" style="font-size:12px;position: absolute; bottom:-29px;">
       @if ($client->actived)
-        <p>Criado em {{$client->created_at->setTimezone('-4')->format('d/m/Y')}} <br> Ativado pela ultima vez em {{$client->last_activated_at->setTimezone('-4')->format('d/m/Y')}}</p>
+        <p>Criado em {{$client->created_at->setTimezone('-4')->format('d/m/Y')}} <br>
+          @if ($client->last_activated_at)
+            Ativado pela ultima vez em {{$client->last_activated_at->setTimezone('-4')->format('d/m/Y')}}</p>
+          @endif
       @else
         <p>Cliente atualmente desativado</p>
       @endif

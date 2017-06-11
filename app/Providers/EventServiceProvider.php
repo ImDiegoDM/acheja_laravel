@@ -16,6 +16,12 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\UserTokenCreate'=>[
           'App\Listeners\SetUuid',
         ],
+        'App\Events\ClientCreateOrUpdate'=>[
+          'App\Listeners\SetLatLng',
+        ],
+        'App\Events\ClientCreatedOrUpdated'=>[
+          'App\Listeners\SavePhotos',
+        ],
     ];
 
     /**

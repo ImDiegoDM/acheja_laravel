@@ -55,8 +55,22 @@ class UserController extends Controller
   public function savePassoword(User $user)
   {
     if($token = UserToken::find(request()->token)){
-      //$user continue aqui
+      if($token->user->id == $user->id){
+        $this->validate(request(),[
+          'password'=>'required|confirmed',
+        ],[
+          'password.required'=>'Por favor digite uma senha',
+          'password.confirmed'=>'As senhas digitadas não batem',
+        ]);
+
+        $user->update(['password'=>bcrypt(request()->password),'have_acess'=>true]);
+        $token->delete();
+
+        return view('users.setPasswordComplete');
+      }
     }
+
+    return redirect()->route('login');
   }
 
   public function show(User $user)
