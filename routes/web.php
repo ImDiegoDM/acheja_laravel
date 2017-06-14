@@ -33,6 +33,17 @@ Route::post('/user/{user}/giveAcess','UserController@giveAcess');
 Route::post('/user/{user}/savePassword','UserController@savePassoword');
 Route::get('/users/setpassword','UserController@setPassword');
 
+Route::get('/content','ContentController@index')->name('content');
+
+Route::post('/categories','CategoryController@create');
+Route::delete('/category/{category}','CategoryController@delete');
+
+Route::post('/cities','CityController@create');
+Route::delete('/city/{city}','CityController@delete');
+
+Route::post('/regions','RegionController@create');
+Route::delete('/region/{region}','RegionController@delete');
+
 Route::get('/login','SessionController@index')->name('login');
 Route::post('/login','SessionController@create');
 Route::get('/logout','SessionController@destroy');

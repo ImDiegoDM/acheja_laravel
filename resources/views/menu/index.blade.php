@@ -30,7 +30,7 @@
         <p class="text-center mb-0">adicionar cliente</p>
       </div>
     </a>
-    <a class="col-sm-3 col-xl-2 mx-sm-2 mx-5 d-flex flexDislpayCenter smooth-border noDeco menu-iten" href="">
+    <a class="col-sm-3 col-xl-2 mx-sm-2 mx-5 d-flex flexDislpayCenter smooth-border noDeco menu-iten" href="./content">
       <div class="d-block">
         <i class="fa fa-align-justify fa-3x d-block" style="margin:auto; width:.8em;" aria-hidden="true"></i>
         <p class="text-center mb-0">gestão de conteudo</p>

@@ -89,6 +89,5 @@
       @endforeach
     </div>
   </div>
-  <script src="{{ URL::asset('js/Filter.js')}}" type="text/javascript">
-  </script>
+  <script src="{{ URL::asset('js/Filter.js')}}" type="text/javascript"></script>
 @stop

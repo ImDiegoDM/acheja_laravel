@@ -276,6 +276,11 @@ a .clientBackground.disable:hover{
   font-size: 13px;
 }
 
+.list-group-item:hover{
+  background: rgb(42, 162, 195);
+  color: white!important;
+}
+
 h4.list-group-item{
   font-size: 15px;
 }
@@ -435,6 +440,14 @@ a:hover{
   text-transform: uppercase;
 }
 
+p[data-toggle]{
+  cursor: pointer;
+}
+
+.hover:hover{
+  cursor: pointer;
+}
+
 .menu-iten:hover{
   color: #b9b9b9;
   border: 2px solid #038fc7;
@@ -449,4 +462,12 @@ a:hover{
 .flexDislpayCenter{
   align-items: center;
   justify-content: center;
+}
+
+.flexDislpayCenter-h{
+  justify-content: center;
+}
+
+.flexDislpayCenter-v{
+  align-items: center;
 }
