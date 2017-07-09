@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="row m-0">
       <div class="col-sm-2 pt-2 px-0">
-        <a href="{{env('APP_URL').'/public/home'}}"><img src="{{ URL::asset('img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
+        <a href="{{env('APP_URL').'/admin/home'}}"><img src="{{  env('APP_URL').('/public/img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
       </div>
       <div class="col-sm-7 pt-2 ">
         <h3 class="p-relative horizontal-center float-sm-right text-center menu-name smooth-border" style="width:90%;">Editar Cliente</h3>
@@ -17,14 +17,14 @@
 @endsection
 
 @section('content')
-  <!--<script type="text/javascript" src="{{ URL::asset('js/ClientsStoreFiles.js')}}" ></script>-->
-  <script type="text/javascript" src="{{ URL::asset('js/FilePreview.js')}}" ></script>
-  <script type="text/javascript" src="{{ URL::asset('js/Photo1.js')}}" ></script>
-  <script type="text/javascript" src="{{ URL::asset('js/Photo2.js')}}" ></script>
-  <script type="text/javascript" src="{{ URL::asset('js/Photo3.js')}}" ></script>
-  <script type="text/javascript" src="{{ URL::asset('js/Photo4.js')}}" ></script>
+  <!--<script type="text/javascript" src="{{  env('APP_URL').('/public/js/ClientsStoreFiles.js')}}" ></script>-->
+  <script type="text/javascript" src="{{  env('APP_URL').('/public/js/FilePreview.js')}}" ></script>
+  <script type="text/javascript" src="{{  env('APP_URL').('/public/js/Photo1.js')}}" ></script>
+  <script type="text/javascript" src="{{  env('APP_URL').('/public/js/Photo2.js')}}" ></script>
+  <script type="text/javascript" src="{{  env('APP_URL').('/public/js/Photo3.js')}}" ></script>
+  <script type="text/javascript" src="{{  env('APP_URL').('/public/js/Photo4.js')}}" ></script>
   <div class="myContainer">
-      <form class="" action="{{env('APP_URL')."/public/client/".$client->id}}" enctype="multipart/form-data" method="post">
+      <form class="" action="{{env('APP_URL')."/admin/client/".$client->id}}" enctype="multipart/form-data" method="post">
         <input type="hidden" name="_method" value="PUT">
         {{ csrf_field() }}
         @include('layout.errors')
@@ -68,7 +68,7 @@
           </div>
           @if (count($users)<=0)
             <div class="col-sm-10 mx-auto alert alert-warning">
-              <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Nenhum <a href="{{URL::asset('users/register')}}">usuario</a> cadastrado no sistemo por favor cadestre um usuario.
+              <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Nenhum <a href="{{ env('APP_URL').('/public/users/register')}}">usuario</a> cadastrado no sistemo por favor cadestre um usuario.
             </div>
           @endif
         </div>

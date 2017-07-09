@@ -8,7 +8,7 @@
   <div class="container-fluid">
     <div class="row m-0">
       <div class="col-sm-2 pt-2 px-0">
-        <a href="{{env('APP_URL').'/public/home'}}"><img src="{{ URL::asset('img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
+        <a href="{{env('APP_URL').'/admin/home'}}"><img src="{{  env('APP_URL').('/public/img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
       </div>
       <div class="col-sm-7 pt-2 ">
         <h3 class="p-relative horizontal-center float-sm-right text-center menu-name smooth-border" style="width:90%;">Gestão de clientes</h3>
@@ -23,6 +23,28 @@
 @section('content')
   <div class="myContainer">
     @include('layout.client')
+    <div class="row mx-0 mt-3">
+      <div class="mx-auto">
+        @if (!$client->actived)
+          <form class="d-inline-block" action="{{env('APP_URL')."/admin/client/".$client->id.'/active'}}" method="post">
+            {{ csrf_field() }}
+            <input type="hidden" name="_method" value="PUT">
+            <input type="submit" class="btn btn-confirm mx-2 mb-2" value="Ativar"></input>
+          </form>
+        @else
+          <form class="d-inline-block" action="{{env('APP_URL')."/admin/client/".$client->id.'/disable'}}" method="post">
+            {{ csrf_field() }}
+            <input type="hidden" name="_method" value="PUT">
+            <input type="submit" class="btn btn-confirm mx-2 mb-2" value="Desativar"></input>
+          </form>
+        @endif
+        <a class="btn btn-confirm mx-2 mb-2" href="{{env('APP_URL').'/admin/client/'.$client->id.'/edit'}}" name="button">Editar</a>
+        <a class="btn btn-confirm mx-2 mb-2" href="{{env('APP_URL').'/admin/promotions/'.$client->id.''}}" name="button">Ver promoções</a>
+        <a class="btn btn-confirm mx-2 mb-2" href="{{env('APP_URL').'/admin/client/'.$client->id.'/edit'}}" name="button">Ver cartão fidelidade</a>
+        <a class="btn btn-confirm mx-2 mb-2" href="" name="button">Ver comentarios</a>
+      </div>
+    </div>
+    <hr>
     <div class="row mx-0 pt-3">
       <div class="col-sm-3 imgBox">
         <a href="">
@@ -57,25 +79,7 @@
         </div>
         <div class="">
           <h5>Contato</h5>
-          <p class="ml-3"><a href="{{env('APP_URL')}}/public/user/{{$client->user->id}}">{{$client->user->name}}</a><br>{{Helper::mask($client->user->phone,'(**) ****-****')}}<br>{{$client->user->email}}</p>
-        </div>
-        <div class="row mx-0 mt-5">
-          <div class="mx-auto">
-            @if (!$client->actived)
-              <form class="d-inline-block" action="{{env('APP_URL')."/public/client/".$client->id.'/active'}}" method="post">
-                {{ csrf_field() }}
-                <input type="hidden" name="_method" value="PUT">
-                <input type="submit" class="btn btn-confirm mx-3" value="Ativar"></input>
-              </form>
-            @else
-              <form class="d-inline-block" action="{{env('APP_URL')."/public/client/".$client->id.'/disable'}}" method="post">
-                {{ csrf_field() }}
-                <input type="hidden" name="_method" value="PUT">
-                <input type="submit" class="btn btn-confirm mx-3" value="Desativar"></input>
-              </form>
-            @endif
-            <a class="btn btn-confirm mx-3" href="{{env('APP_URL').'/public/client/'.$client->id.'/edit'}}" name="button">Editar</a>
-          </div>
+          <p class="ml-3"><a href="{{env('APP_URL')}}/admin/user/{{$client->user->id}}">{{$client->user->name}}</a><br>{{Helper::mask($client->user->phone,'(**) ****-****')}}<br>{{$client->user->email}}</p>
         </div>
       </div>
       <div class="col-sm-6">

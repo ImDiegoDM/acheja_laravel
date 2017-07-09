@@ -9,7 +9,7 @@
   <div class="myContainer">
     <div class="vertical-center w-100 h-100">
       <div class="col-sm-9 col-md-6 mx-auto">
-        <img src="./img/acheja.png" class="centerXDiv col-sm-12" alt="">
+        <img src="../img/acheja.png" class="centerXDiv col-sm-12" alt="">
         <p class="text-center mt-1" style="font-size:18px;">PAINEL ADMINISTRATIVO DE DADOS</p>
         <div class="col-sm-9 shadow px-4 pt-4 mx-auto">
           <form class="" action="./login" method="post">

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use App\Events\ClientCreateOrUpdate;
 use App\Events\ClientCreatedOrUpdated;
+use App\Helper;
 
 class Client extends Model
 {
@@ -38,7 +39,10 @@ class Client extends Model
       return $this->belongsTo(City::class);
     }
 
-
+    public function promotions()
+    {
+      return $this->hasMany(Promotion::class);
+    }
 
     public function user()
     {
@@ -59,7 +63,32 @@ class Client extends Model
       return $this->update(['actived'=>true,'last_activated_at'=>Carbon::now()]);
     }
 
+    public static function selectAtributes($atributes)
+    {
+      $clients = Client::all();
+      $finalArray = [];
+      foreach ($clients as $client) {
+        $client->category = $client->category;
+        $client->city = $client->city;
+        $client->region = $client->region;
+        $iten = collect($client->toArray())->only($atributes)->all();
+        array_push($finalArray,$iten);
+      }
+      return $finalArray;
+    }
 
+    public static function allAtributes()
+    {
+      $clients = Client::all();
+      $return= $clients->map(function($client){
+        $client->category = $client->category;
+        $client->city = $client->city;
+        $client->region = $client->region;
+        $iten = collect($client->toArray())->all();
+        return $iten;
+      });
+      return $return;
+    }
 
     public static function validateRulesForCreate()
     {
@@ -80,7 +109,23 @@ class Client extends Model
       ];
     }
 
-
+    public static function quickSortDist($array)
+    {
+      if( count( $array ) < 2 ) {
+        return $array;
+      }
+      $left = $right = array( );
+      reset( $array );
+      $pivot_key  = key( $array );
+      $pivot  = array_shift( $array );
+      foreach( $array as $k => $v ) {
+        if( $v->distance < $pivot->distance )
+        $left[$k] = $v;
+        else
+        $right[$k] = $v;
+      }
+      return array_merge(Client::quickSortDist($left), array($pivot_key => $pivot), Client::quickSortDist($right));
+    }
 
     public static function validateRulesForUpdate()
     {

@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="row m-0">
       <div class="col-sm-2 pt-2 px-0">
-        <a href="{{env('APP_URL').'/public/home'}}"><img src="{{ URL::asset('img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
+        <a href="{{env('APP_URL').'/admin/home'}}"><img src="{{  env('APP_URL').('/public/img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
       </div>
       <div class="col-sm-7 pt-2 ">
         <h3 class="p-relative horizontal-center float-sm-right text-center menu-name smooth-border" style="width:90%;">Gestão de conteudo</h3>
@@ -17,35 +17,7 @@
 @endsection
 
 @section('content')
-@if (Session::has('success'))
-  <script type="text/javascript">
-  $(document).ready(function() {
-    $('#modalmessage').modal('show');
-  });
-  </script>
-  <!-- Modal message -->
-  <div class="modal fade" id="modalmessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sucesso</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <form class="" action="{{env('APP_URL').'/public/content/category'}}" method="post">
-          {{ csrf_field() }}
-          <div class="modal-body">
-            {{Session::get('success')}}
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-confirm" data-dismiss="modal">Ok!</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-@endif
+@include('layout.success')
 
 
 <!-- Modal Category -->
@@ -58,7 +30,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="" action="{{env('APP_URL').'/public/categories'}}" method="post">
+      <form class="" action="{{env('APP_URL').'/admin/categories'}}" method="post">
         {{ csrf_field() }}
         <div class="modal-body">
           <div class="form-group">
@@ -85,7 +57,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="" action="{{env('APP_URL').'/public/category/'.request()->category}}" method="post">
+      <form class="" action="{{env('APP_URL').'/admin/category/'.request()->category}}" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="_method" value="DELETE">
         <div class="modal-body">
@@ -111,7 +83,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="" action="{{env('APP_URL').'/public/regions'}}" method="post">
+      <form class="" action="{{env('APP_URL').'/admin/regions'}}" method="post">
         {{ csrf_field() }}
         <div class="modal-body">
           <div class="form-group">
@@ -138,7 +110,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="" action="{{env('APP_URL').'/public/region/'.request()->region}}" method="post">
+      <form class="" action="{{env('APP_URL').'/admin/region/'.request()->region}}" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="_method" value="DELETE">
         <div class="modal-body">
@@ -164,7 +136,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="" action="{{env('APP_URL').'/public/city/'.request()->city}}" method="post">
+      <form class="" action="{{env('APP_URL').'/admin/city/'.request()->city}}" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="_method" value="DELETE">
         <input type="hidden" name="id" value="">
@@ -219,7 +191,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form class="" action="{{env('APP_URL').'/public/cities'}}" method="post">
+            <form class="" action="{{env('APP_URL').'/admin/cities'}}" method="post">
               {{ csrf_field() }}
               <input type="hidden" name="state_id" value="{{$state->id}}">
               <div class="modal-body">
@@ -283,5 +255,5 @@
       </div>
     </div>
   </div>
-  <script src="{{ URL::asset('js/Filter.js')}}" type="text/javascript"></script>
+  <script src="{{  env('APP_URL')('public/js/Filter.js')}}" type="text/javascript"></script>
 @endsection

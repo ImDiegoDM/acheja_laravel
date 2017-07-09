@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="row m-0">
       <div class="col-sm-2 pt-2 px-0">
-        <a href="{{env('APP_URL').'/public/home'}}"><img src="{{ URL::asset('img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
+        <a href="{{env('APP_URL').'/admin/home'}}"><img src="{{  env('APP_URL').('/public/img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
       </div>
       <div class="col-sm-7 pt-2 ">
         <h3 class="p-relative horizontal-center float-sm-right text-center menu-name smooth-border" style="width:90%;">Adicionar Usuario</h3>
@@ -19,7 +19,7 @@
 @section('content')
   <div class="myContainer">
     <h1>Dados do usuario</h1>
-    <form class="mx-4 row" action="{{URL::asset('users')}}" method="post">
+    <form class="mx-4 row" action="{{ env('APP_URL')('public/admin/users')}}" method="post">
       {{ csrf_field() }}
       <div class="form-group col-sm-9">
         <label for="name">Nome</label>

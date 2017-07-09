@@ -15,7 +15,7 @@
   </div>
   <div class="col-sm-6 pr-5">
     @if ($client->logo_url)
-      <img class="d-inline-block float-sm-right" style="width:130px; height:auto;" src="{{env('APP_URL') . '/storage/app/' . $client->logo_url}}" alt="Card image cap">
+      <img class="d-inline-block float-sm-right" style="max-width:206px; max-height:116px;" src="{{env('APP_URL') . '/storage/app/' . $client->logo_url}}" alt="Card image cap">
     @else
       <p style="width:100px; height:auto; background-color:#e0e0e0;border-radius:9px; border: dotted #a2a2a2 3px; font-size:12px;" class="d-inline-block text-center p-3">Logo não encontrada, cadastre uma logo</p>
     @endif

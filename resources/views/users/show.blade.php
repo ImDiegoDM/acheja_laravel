@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="row m-0">
       <div class="col-sm-2 pt-2 px-0">
-        <a href="{{env('APP_URL').'/public/home'}}"><img src="{{ URL::asset('img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
+        <a href="{{env('APP_URL').'/admin/home'}}"><img src="{{  env('APP_URL').('/public/img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
       </div>
       <div class="col-sm-7 pt-2 ">
         <h4 class="p-relative horizontal-center float-sm-right text-center menu-name smooth-border" style="width:90%;">Usuario</h4>
@@ -45,7 +45,7 @@
       <p class="ml-4 mb-1">Criado em: <span class="userInfo">{{$user->created_at->setTimezone('-4')->format('d/m/Y')}}</span></p>
     </div>
     <div class="col-sm-6">
-      <form class="" action="{{env('APP_URL').'/public/user/'.$user->id.'/giveAcess'}}" method="post">
+      <form class="" action="{{env('APP_URL').'/admin/user/'.$user->id.'/giveAcess'}}" method="post">
         {{ csrf_field() }}
         <button type="submit" name="button">Dar acesso</button>
       </form>
@@ -55,9 +55,11 @@
     <h3 class="my-3"> Clientes que este usuario possui</h3>
     <div class="leftBorder px-4">
       @foreach ($user->clients as $client)
-        <a href="{{env('APP_URL')}}/public/client/{{$client->id}}">
-        @include('layout.client')
-        </a>
+          <div class="col-sm-9">
+            <a href="{{env('APP_URL')}}/admin/client/{{$client->id}}">
+            @include('layout.client-line')
+          </a>
+          </div>
       @endforeach
     </div>
   </div>

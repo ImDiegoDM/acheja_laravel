@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="row m-0">
       <div class="col-sm-2 pt-2 px-0">
-        <a href="{{env('APP_URL').'/public/home'}}"><img src="{{ URL::asset('img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
+        <a href="{{env('APP_URL').'/admin/home'}}"><img src="{{  env('APP_URL').('/public/img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
       </div>
     </div>
   </div>
@@ -14,7 +14,7 @@
 @section('content')
   <div class="myContainer">
     <h1>Olá, {{$user->name}}</h1>
-    <form class="mx-4 row" action="{{env('APP_URL').'/public/user/'.$user->id.'/savePassword'}}" method="post">
+    <form class="mx-4 row" action="{{env('APP_URL').'/admin/user/'.$user->id.'/savePassword'}}" method="post">
       <div class="form-group col-sm-12">para poder usar a nossa plataforma por favor cadastre uma senha.</div>
       {{ csrf_field() }}
       <input type="hidden" name="token" value="{{request()->token}}">
@@ -31,7 +31,7 @@
       <div class="form-group mx-auto ">
         <div class="col-sm-12" style="margin:auto;">
           <input type="submit" class="btn btn-confirm mx-3" name="button" value="Publicar"></input>
-          <a class="btn btn-back float-sm-right mx-3" href="" onclick="{{env('APP_URL').'/public/login' }}" name="button">Voltar</a>
+          <a class="btn btn-back float-sm-right mx-3" href="" onclick="{{env('APP_URL').'/admin/login' }}" name="button">Voltar</a>
         </div>
       </div>
       <div class="form-group col-sm-12">

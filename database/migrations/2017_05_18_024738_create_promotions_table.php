@@ -19,6 +19,8 @@ class CreatePromotionsTable extends Migration
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients');
 
+            $table->string('title');
+
             $table->string('description',255);
 
             $table->timestamps();

@@ -2,6 +2,18 @@
   padding: 0px 10px;
 }
 
+.promotion{
+  border-radius: 5px;
+  border: #00aede solid 2px;
+}
+
+.abs-right{
+  position: absolute;
+  right: 0px;
+  top:50%;
+  transform: translateY(-50%);
+}
+
 .max100{
   font-size: 12px;
   position: absolute;
@@ -107,7 +119,7 @@
 }
 
 .clientBackground{
-
+  min-height: 147px
 }
 
 .clientBackground.active{
@@ -233,11 +245,12 @@ a .clientBackground.disable:hover{
 }
 
 .file-preview{
-  top: 5px;
+  top: 50%;
+  transform: translateY(-50%);
   display: none;
   position: absolute;
-  width: 150px;
-  height: 150px;
+  max-width: 220px;
+  max-height: 150px;
 }
 
 .photo-preview, .labelP-preview{
@@ -425,6 +438,12 @@ height: 70%;
   height: 8rem;
   color: #848383;
   background-color: #e6e6e6;
+}
+
+.menu-iten:focus{
+  outline: none;
+  text-decoration: none;
+  color: #848383;
 }
 
 a{

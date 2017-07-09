@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <div class="row m-0">
       <div class="col-sm-2 pt-2 px-0">
-        <a href="{{env('APP_URL').'/public/home'}}"><img src="{{ URL::asset('img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
+        <a href="{{env('APP_URL').'/admin/home'}}"><img src="{{  env('APP_URL').('/public/img/acheja.png')}}" class="p-relative horizontal-center " style="width:100%;" alt=""></a>
       </div>
       <div class="col-sm-7 pt-2 ">
         <h3 class="p-relative horizontal-center float-sm-right text-center menu-name smooth-border" style="width:90%;">Gestão de clientes</h3>
@@ -89,5 +89,5 @@
       @endforeach
     </div>
   </div>
-  <script src="{{ URL::asset('js/Filter.js')}}" type="text/javascript"></script>
+  <script src="{{  env('APP_URL').('/public/js/Filter.js')}}" type="text/javascript"></script>
 @stop

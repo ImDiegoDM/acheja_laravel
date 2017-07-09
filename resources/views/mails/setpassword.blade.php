@@ -3,7 +3,7 @@ Olá, você acaba de ganhar acesso a plataforma do Ache Já lá você pode cenfe
 
 Para poder acessar a plataforma você precisa cadastrar uma senha, basta clicar no botão e baixo e cadastrar a sua senha.
 
-@component('mail::button', ['url' =>env('APP_URL').'/public/users/setpassword?token='.$token])
+@component('mail::button', ['url' =>env('APP_URL').'/admin/users/setpassword?token='.$token])
 Cadastrar Senha
 @endcomponent
 

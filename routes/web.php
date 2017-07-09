@@ -14,36 +14,43 @@ Route::get('/', function(){
   return redirect()->home();
 });
 
-Route::get('/home', 'MenuController@index')->name('home');
+Route::get('admin/home', 'MenuController@index')->name('home');
 
-Route::get('/clients', 'ClientController@index');
-Route::get('/client/{client}', 'ClientController@show');
-Route::put('/client/{client}', 'ClientController@update');
-Route::get('/client/{client}/edit', 'ClientController@edit');
-Route::get('/clients/register','ClientController@register');
-Route::post('/clients','ClientController@store');
-Route::put('/client/{client}/active','ClientController@active');
-Route::put('/client/{client}/disable','ClientController@disable');
+Route::get('admin/clients', 'ClientController@index');
+Route::get('admin/client/{client}', 'ClientController@show');
+Route::put('admin/client/{client}', 'ClientController@update');
+Route::get('admin/client/{client}/edit', 'ClientController@edit');
+Route::get('admin/clients/register','ClientController@register');
+Route::post('admin/clients','ClientController@store');
+Route::put('admin/client/{client}/active','ClientController@active');
+Route::put('admin/client/{client}/disable','ClientController@disable');
 
-Route::get('/users/register','UserController@register');
-Route::post('/users','UserController@store');
-Route::get('/users','UserController@index');
-Route::get('/user/{user}','UserController@show');
-Route::post('/user/{user}/giveAcess','UserController@giveAcess');
-Route::post('/user/{user}/savePassword','UserController@savePassoword');
-Route::get('/users/setpassword','UserController@setPassword');
+Route::get('admin/users/register','UserController@register');
+Route::post('admin/users','UserController@store');
+Route::get('admin/users','UserController@index');
+Route::get('admin/user/{user}','UserController@show');
+Route::post('admin/user/{user}/giveAcess','UserController@giveAcess');
+Route::post('admin/user/{user}/savePassword','UserController@savePassoword');
+Route::get('admin/users/setpassword','UserController@setPassword');
 
-Route::get('/content','ContentController@index')->name('content');
+Route::get('admin/content','ContentController@index')->name('content');
 
-Route::post('/categories','CategoryController@create');
-Route::delete('/category/{category}','CategoryController@delete');
+Route::post('admin/categories','CategoryController@create');
+Route::delete('admin/category/{category}','CategoryController@delete');
 
-Route::post('/cities','CityController@create');
-Route::delete('/city/{city}','CityController@delete');
+Route::post('admin/cities','CityController@create');
+Route::delete('admin/city/{city}','CityController@delete');
 
-Route::post('/regions','RegionController@create');
-Route::delete('/region/{region}','RegionController@delete');
+Route::post('admin/regions','RegionController@create');
+Route::delete('admin/region/{region}','RegionController@delete');
 
-Route::get('/login','SessionController@index')->name('login');
-Route::post('/login','SessionController@create');
-Route::get('/logout','SessionController@destroy');
+Route::get('admin/promotions/{client}','PromotionController@index');
+Route::post('admin/promotions/{client}','PromotionController@save');
+Route::delete('admin/promotion/{promotion}','PromotionController@delete');
+Route::put('admin/promotion/{promotion}','PromotionController@update');
+
+Route::get('admin/login','SessionController@index')->name('login');
+Route::post('admin/login','SessionController@create');
+Route::get('admin/logout','SessionController@destroy');
+
+Route::get('api/clients','ClientController@apiIndex');

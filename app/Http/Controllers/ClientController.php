@@ -8,14 +8,15 @@ use App\Category;
 use App\Region;
 use App\City;
 use App\User;
+use App\Helper;
 
 class ClientController extends Controller
 {
 
   public function __construct()
   {
-    $this->middleware('auth');
-    $this->middleware('admin');
+    $this->middleware('auth',['except'=> 'apiIndex']);
+    $this->middleware('admin',['except'=> 'apiIndex']);
   }
 
     public function index()
@@ -37,6 +38,38 @@ class ClientController extends Controller
       }
 
       return view('clients.index')->with('clients',$clients)->with('categories',$categories)->with('cities',$cities);
+    }
+
+    public function apiIndex()
+    {
+      $clients = Client::selectAtributes([
+        'id',
+        'name',
+        'street',
+        'street_number',
+        'lng',
+        'lat',
+        'description',
+        'phone',
+        'website',
+        'logo_url',
+        'photo_1',
+        'photo_2',
+        'photo_3',
+        'photo_4',
+        'video_link',
+        'category',
+        'actived',
+        'city',
+        'region',
+        'created_at'
+      ]);
+      if(request()->lat&&request()->lng){
+        foreach ($clients as $client) {
+          $client->distance=Helper::DistanceOfTwoPoints(request()->lat,request()->lng,$client->lat,$client->lng);
+        }
+      }
+      return $clients;
     }
 
     public function show(Client $client)
@@ -68,14 +101,14 @@ class ClientController extends Controller
     public function active(client $client)
     {
       if($client->active()){
-        return redirect('client/'.$client->id);
+        return redirect('admin/client/'.$client->id);
       }
     }
 
     public function disable(client $client)
     {
       if($client->disable()){
-        return redirect('client/'.$client->id);
+        return redirect('admin/client/'.$client->id);
       }
     }
 
