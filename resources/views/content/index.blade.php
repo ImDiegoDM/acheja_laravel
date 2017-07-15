@@ -255,5 +255,5 @@
       </div>
     </div>
   </div>
-  <script src="{{  env('APP_URL')('public/js/Filter.js')}}" type="text/javascript"></script>
+  <script src="{{  env('APP_URL').('public/js/Filter.js')}}" type="text/javascript"></script>
 @endsection
