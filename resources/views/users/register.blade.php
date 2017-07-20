@@ -19,7 +19,7 @@
 @section('content')
   <div class="myContainer">
     <h1>Dados do usuario</h1>
-    <form class="mx-4 row" action="{{ env('APP_URL').('public/admin/users')}}" method="post">
+    <form class="mx-4 row" action="{{ env('APP_URL').('/public/admin/users')}}" method="post">
       {{ csrf_field() }}
       <div class="form-group col-sm-9">
         <label for="name">Nome</label>

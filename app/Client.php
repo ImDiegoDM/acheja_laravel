@@ -63,6 +63,16 @@ class Client extends Model
       return $this->update(['actived'=>true,'last_activated_at'=>Carbon::now()]);
     }
 
+    public function ApiFormat($atributes)
+    {
+      $client = $this;
+      $client->category = $client->category;
+      $client->city = $client->city;
+      $client->region = $client->region;
+      $iten = collect($client->toArray())->only($atributes)->all();
+      return $iten;
+    }
+
     public static function selectAtributes($atributes)
     {
       $clients = Client::all();
