@@ -15,8 +15,9 @@ class ClientController extends Controller
 
   public function __construct()
   {
-    $this->middleware('auth',['except'=> ['apiIndex','apiShow']]);
-    $this->middleware('admin',['except'=> ['apiIndex','apiShow']]);
+    $this->middleware('auth',['except'=> ['apiIndex','apiShow','promotionsShow']]);
+    $this->middleware('admin',['except'=> ['apiIndex','apiShow','promotionsShow']]);
+    $this->middleware('cors',['only'=> ['apiIndex','apiShow','promotionsShow']]);
   }
 
     public function index()
@@ -38,6 +39,11 @@ class ClientController extends Controller
       }
 
       return view('clients.index')->with('clients',$clients)->with('categories',$categories)->with('cities',$cities);
+    }
+
+    public function promotionsShow(Client $client)
+    {
+      return $client->promotions;
     }
 
     public function apiShow(Client $client)

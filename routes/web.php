@@ -55,3 +55,4 @@ Route::get('admin/logout','SessionController@destroy');
 
 Route::get('api/clients','ClientController@apiIndex');
 Route::get('api/client/{client}','ClientController@apiShow');
+Route::get('api/client/{client}/promotions','ClientController@promotionsShow');
